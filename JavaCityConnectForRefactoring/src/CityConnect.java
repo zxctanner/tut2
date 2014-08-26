@@ -129,7 +129,7 @@ public class CityConnect {
 
 	public static String executeCommand(String userCommand) {
 		if (userCommand.trim().equals(""))
-			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
+			return no_command_error(userCommand);
 
 		String commandTypeString = getFirstWord(userCommand);
 
@@ -141,7 +141,7 @@ public class CityConnect {
 		case GET_DISTANCE:
 			return getDistance(userCommand);
 		case INVALID:
-			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
+			return no_command_error(userCommand);
 		case EXIT:
 			System.exit(0);
 		default:
@@ -154,6 +154,14 @@ public class CityConnect {
 		 * That is why we use an Error instead of an Exception.
 		 * ====================================================================
 		 */
+	}
+
+	/**
+	 * @param userCommand
+	 * @return
+	 */
+	private static String no_command_error(String userCommand) {
+		return String.format(MESSAGE_INVALID_FORMAT, userCommand);
 	}
 
 	/*
@@ -199,7 +207,7 @@ public class CityConnect {
 		String[] parameters = splitParameters(removeFirstWord(userCommand));
 
 		if (parameters.length < PARAM_SIZE_FOR_GET_DISTANCE) {
-			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
+			return no_command_error(userCommand);
 		}
 
 		String newStartLocation = parameters[PARAM_POSITION_START_LOCATION];
@@ -254,7 +262,7 @@ public class CityConnect {
 		String[] parameters = splitParameters(removeFirstWord(userCommand));
 		
 		if (parameters.length < PARAM_SIZE_FOR_ADD_ROUTE){
-			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
+			return no_command_error(userCommand);
 		}
 
 		String newStartLocation = parameters[PARAM_POSITION_START_LOCATION];
@@ -262,7 +270,7 @@ public class CityConnect {
 		String distance = parameters[PARAM_POSITION_DISTANCE];
 
 		if (!isPositiveNonZeroInt(distance)){
-			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
+			return no_command_error(userCommand);
 		}
 
 		int slotPosition = location(newStartLocation, newEndLocation);
