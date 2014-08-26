@@ -143,7 +143,7 @@ public class CityConnect {
 		case INVALID:
 			return no_command_error(userCommand);
 		case EXIT:
-			System.exit(0);
+			exit_program();
 		default:
 			//throw an error if the command is not recognized
 			throw new Error("Unrecognized command type");
@@ -154,6 +154,13 @@ public class CityConnect {
 		 * That is why we use an Error instead of an Exception.
 		 * ====================================================================
 		 */
+	}
+
+	/**
+	 * 
+	 */
+	private static void exit_program() {
+		System.exit(0);
 	}
 
 	/**
