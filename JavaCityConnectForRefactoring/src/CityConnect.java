@@ -201,6 +201,15 @@ public class CityConnect {
 		if (commandTypeString == null)
 			throw_null_command_error();
 
+		return parse_command_type_string_when_ignoring_case(commandTypeString);
+	}
+
+	/**
+	 * @param commandTypeString
+	 * @return
+	 */
+	private static COMMAND_TYPE parse_command_type_string_when_ignoring_case(
+			String commandTypeString) {
 		if (commandTypeString.equalsIgnoreCase("addroute")) {
 			return COMMAND_TYPE.ADD_ROUTE;
 		} else if (commandTypeString.equalsIgnoreCase("getdistance")) {
