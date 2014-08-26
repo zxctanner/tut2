@@ -396,6 +396,16 @@ public class CityConnect {
 	}
 
 	private static String[] splitParameters(String commandParametersString) {
+		String[] parameters = trim_and_split_parameters(commandParametersString);
+		return parameters;
+	}
+
+	/**
+	 * @param commandParametersString
+	 * @return
+	 */
+	private static String[] trim_and_split_parameters(
+			String commandParametersString) {
 		String[] parameters = commandParametersString.trim().split("\\s+");
 		return parameters;
 	}
