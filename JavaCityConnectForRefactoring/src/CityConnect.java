@@ -211,14 +211,42 @@ public class CityConnect {
 	private static COMMAND_TYPE parse_command_type_string_when_ignoring_case(
 			String commandTypeString) {
 		if (commandTypeString.equalsIgnoreCase("addroute")) {
-			return COMMAND_TYPE.ADD_ROUTE;
+			return add_route();
 		} else if (commandTypeString.equalsIgnoreCase("getdistance")) {
-			return COMMAND_TYPE.GET_DISTANCE;
+			return get_distance();
 		} else if (commandTypeString.equalsIgnoreCase("exit")) {
-		 	return COMMAND_TYPE.EXIT;
+		 	return exit();
 		} else {
-			return COMMAND_TYPE.INVALID;
+			return invalid_command_type();
 		}
+	}
+
+	/**
+	 * @return
+	 */
+	private static COMMAND_TYPE invalid_command_type() {
+		return COMMAND_TYPE.INVALID;
+	}
+
+	/**
+	 * @return
+	 */
+	private static COMMAND_TYPE exit() {
+		return COMMAND_TYPE.EXIT;
+	}
+
+	/**
+	 * @return
+	 */
+	private static COMMAND_TYPE get_distance() {
+		return COMMAND_TYPE.GET_DISTANCE;
+	}
+
+	/**
+	 * @return
+	 */
+	private static COMMAND_TYPE add_route() {
+		return COMMAND_TYPE.ADD_ROUTE;
 	}
 
 	/**
