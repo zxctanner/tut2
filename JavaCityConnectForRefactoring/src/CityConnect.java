@@ -146,7 +146,7 @@ public class CityConnect {
 			exit_program();
 		default:
 			//throw an error if the command is not recognized
-			throw new Error("Unrecognized command type");
+			throw_unrecognized_command_type_error();
 		}
 		/*
 		 * ==============NOTE TO STUDENTS======================================
@@ -154,6 +154,13 @@ public class CityConnect {
 		 * That is why we use an Error instead of an Exception.
 		 * ====================================================================
 		 */
+	}
+
+	/**
+	 * @throws Error
+	 */
+	private static void throw_unrecognized_command_type_error() throws Error {
+		throw new Error("Unrecognized command type");
 	}
 
 	/**
