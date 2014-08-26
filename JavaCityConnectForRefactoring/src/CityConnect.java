@@ -249,8 +249,7 @@ public class CityConnect {
 		int position = getPositionOfExistingRoute(newStartLocation, newEndLocation);
 
 		if (position == NOT_FOUND) {
-			return String.format(MESSAGE_NO_ROUTE, newStartLocation,
-					newEndLocation);
+			return return_no_route_message(newStartLocation, newEndLocation);
 		} 
 		else 
 		{
@@ -258,6 +257,17 @@ public class CityConnect {
 					route[position][STORAGE_POSITION_DISTANCE]);
 		}
 
+	}
+
+	/**
+	 * @param newStartLocation
+	 * @param newEndLocation
+	 * @return
+	 */
+	private static String return_no_route_message(String newStartLocation,
+			String newEndLocation) {
+		return String.format(MESSAGE_NO_ROUTE, newStartLocation,
+				newEndLocation);
 	}
 
 	/**
