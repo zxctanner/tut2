@@ -319,7 +319,7 @@ public class CityConnect {
 		int slotPosition = location(newStartLocation, newEndLocation);
 
 		if (slotPosition == SLOT_UNAVAILABLE){
-			return MESSAGE_NO_SPACE;
+			return return_no_space_message();
 		}
 
 		addRouteAtPosition(newStartLocation, newEndLocation, distance,
@@ -327,6 +327,13 @@ public class CityConnect {
 
 		return String.format(MESSAGE_ADDED, newStartLocation, newEndLocation,
 				distance);
+	}
+
+	/**
+	 * @return
+	 */
+	private static String return_no_space_message() {
+		return MESSAGE_NO_SPACE;
 	}
 
 	private static void addRouteAtPosition(String newStartLocation,
