@@ -374,13 +374,20 @@ public class CityConnect {
 
 		if ((startLocation1 == null) || (endLocation1 == null)
 				&& (startLocation2 == null) || (endLocation2 == null)){
-			throw new Error("Route end points cannot be null");
+			throw_route_end_points_null_error();
 		}
 
 		return (startLocation1.equalsIgnoreCase(startLocation2) && endLocation1
 				.equalsIgnoreCase(endLocation2))
 				|| (startLocation1.equalsIgnoreCase(endLocation2) && endLocation1
 						.equalsIgnoreCase(startLocation2));
+	}
+
+	/**
+	 * @throws Error
+	 */
+	private static void throw_route_end_points_null_error() throws Error {
+		throw new Error("Route end points cannot be null");
 	}
 
 	private static boolean isPositiveNonZeroInt(String s) {
