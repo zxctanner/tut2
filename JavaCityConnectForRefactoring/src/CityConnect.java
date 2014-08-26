@@ -154,6 +154,9 @@ public class CityConnect {
 		 * That is why we use an Error instead of an Exception.
 		 * ====================================================================
 		 */
+		
+		return no_command_error(userCommand);
+
 	}
 
 	/**
@@ -196,7 +199,7 @@ public class CityConnect {
 	 */
 	private static COMMAND_TYPE determineCommandType(String commandTypeString) {
 		if (commandTypeString == null)
-			throw new Error("command type string cannot be null!");
+			throw_null_command_error();
 
 		if (commandTypeString.equalsIgnoreCase("addroute")) {
 			return COMMAND_TYPE.ADD_ROUTE;
@@ -207,6 +210,13 @@ public class CityConnect {
 		} else {
 			return COMMAND_TYPE.INVALID;
 		}
+	}
+
+	/**
+	 * @throws Error
+	 */
+	private static void throw_null_command_error() throws Error {
+		throw new Error("command type string cannot be null!");
 	}
 
 	/**
